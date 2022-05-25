@@ -100,9 +100,9 @@ namespace BOTAY_
 
         public void leaveTwentyLast()
         {
-            if (ListOfTasks.Count > 10)
+            if (ListOfTasks.Count > 20)
             {
-                for(int i = 0; i < ListOfTasks.Count - 10; i++)
+                for(int i = 0; i < ListOfTasks.Count - 20; i++)
                 {
                     _ListOfTasks.RemoveAt(0);                
                 }
