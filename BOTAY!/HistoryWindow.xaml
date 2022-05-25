@@ -1,0 +1,21 @@
+﻿<Window x:Class="BOTAY_.HistoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BOTAY_"
+        mc:Ignorable="d"
+        Title="История" Height="450" Width="710" ResizeMode="NoResize">
+    <Grid>
+        <DataGrid x:Name="ToBotayHistoryList" Margin="0,46,0,0" AutoGenerateColumns="False" CanUserAddRows="False" Loaded="DataGrid_Loaded" CanUserSortColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Header="Имя" Width="120" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Название материала" Width="230" Binding="{Binding Path=FullName}" />
+                <DataGridHyperlinkColumn IsReadOnly="True" Header="URL" Width="230" Binding="{Binding Path=Url}"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Дедлайн" Width="65" Binding="{Binding Path=Deadline}"/>
+                <DataGridCheckBoxColumn Header="Готово" Width="50" Binding="{Binding Path=IsReady}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Удалить" Margin="10,10,0,0" Click="Button_Click_Delete" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70"/>
+    </Grid>
+</Window>

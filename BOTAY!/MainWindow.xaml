@@ -1,0 +1,31 @@
+﻿<Window x:Class="BOTAY_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BOTAY_"
+        mc:Ignorable="d"
+        Title="БОТАЙ!" Height="450" Width="820" SizeToContent="Manual" WindowState="Normal" WindowStyle="ToolWindow" FontFamily="Dubai" ResizeMode="NoResize">
+    <Grid x:Name="MainRoot" Background="White">
+
+        <DataGrid x:Name="ToBotayList" Margin="20,65,20,20" Grid.ColumnSpan="2" AutoGenerateColumns="False" MouseDoubleClick="DataGrid_MouseDoubleClick" CanUserAddRows="False" Loaded="DataGrid_Loaded" CanUserSortColumns="False" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Header="Имя" Width="120" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn IsReadOnly="True" Header="Название материала" Width="240" Binding="{Binding Path=FullName}" />
+                <DataGridHyperlinkColumn x:Name="Hyperlink"  IsReadOnly="True"  Header="URL" Width="280" Binding="{Binding Path=Url}">
+                    <DataGridHyperlinkColumn.ElementStyle>
+                        <Style>
+                            <EventSetter Event="Hyperlink.Click" Handler="DG_Hyperlink_Click"/>
+                        </Style>
+                    </DataGridHyperlinkColumn.ElementStyle>
+                </DataGridHyperlinkColumn>
+                <DataGridTextColumn IsReadOnly="True" Header="Дедлайн" Width="65" Binding="{Binding Path=Deadline}"/>
+                <DataGridCheckBoxColumn Header="Готово" Width="52" Binding="{Binding Path=IsReady, UpdateSourceTrigger=PropertyChanged}" IsThreeState="False"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Добавить" Margin="20,33,0,0" Click="Button_Click_Add" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70"/>
+        <Button Content="История" Margin="0,33,20,0" Click="Button_Click_History" Height="24" VerticalAlignment="Top" HorizontalAlignment="Right" Width="70" Grid.Column="1"/>
+        <Button Content="Удалить" Margin="109,33,0,0" Click="Button_Click_Delete" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70"/>
+    </Grid>
+</Window>
+    
