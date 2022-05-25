@@ -13,6 +13,11 @@ namespace BOTAY_
         private string _Deadline = "NoDeadline";
         private bool _IsReady = false;
 
+        ~Task()
+        {
+            Console.WriteLine(_Name);
+        }
+
         public string Name
         {
             get
@@ -32,6 +37,8 @@ namespace BOTAY_
                 }
             }
         }
+
+
 
         public string Url
         {

@@ -65,9 +65,11 @@ namespace BOTAY_
 
         public static void Update()
         {
+            _HistoryTasks.leaveTwentyLast();
             List<Task> DeleteList = new List<Task>();
 
-            foreach (Task task in _CurrentTasks.ListOfTasks){
+            foreach (Task task in _CurrentTasks.ListOfTasks)
+            {
                 if (task.IsReady)
                 {
                     _HistoryTasks.addToList(task);
@@ -95,9 +97,6 @@ namespace BOTAY_
             {
                 _HistoryTasks.deleteTaskFromList(task);
             }
-
-            _CurrentTasks.ListToCsv(_currentFilename);
-            _HistoryTasks.ListToCsv(_historyFilename);
         }
     }
 }

@@ -34,6 +34,8 @@ namespace BOTAY_
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
             MemoryInteraction.Update();
+            MemoryInteraction.UpdateHistoryCsv();
+            MemoryInteraction.UpdateCurrentCsv();
         }
 
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -47,7 +49,6 @@ namespace BOTAY_
                 {
                     MemoryInteraction.CurrentTasks.SortTasksListByDeadline();
                     DataGridUpdate();
-                    MemoryInteraction.UpdateCurrentCsv();
                 }
             }
         }
@@ -62,7 +63,6 @@ namespace BOTAY_
                     MemoryInteraction.CurrentTasks.deleteTaskFromList(path);
                     ToBotayList.UnselectAll();
                     DataGridUpdate();
-                    MemoryInteraction.UpdateCurrentCsv();
                 }
             }
          
@@ -74,23 +74,27 @@ namespace BOTAY_
             if ((bool)addWindow.ShowDialog()) {
                 MemoryInteraction.CurrentTasks.SortTasksListByDeadline();
                 DataGridUpdate();
-                MemoryInteraction.UpdateCurrentCsv();
             }
         }
 
 
         private void Button_Click_History(object sender, RoutedEventArgs e)
         {
+            MemoryInteraction.HistoryTasks.leaveTwentyLast();
+
             MemoryInteraction.Update();
             DataGridUpdate();
+
             HistoryWindow historyWindow = new HistoryWindow();
             historyWindow.ShowDialog();
+
             MemoryInteraction.Update();
             DataGridUpdate();
         }
 
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
+            MemoryInteraction.HistoryTasks.leaveTwentyLast();
             MemoryInteraction.Update();
             ToBotayList.ItemsSource = MemoryInteraction.CurrentTasks.ListOfTasks;
         }

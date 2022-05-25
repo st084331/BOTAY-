@@ -77,6 +77,10 @@ namespace BOTAY_
         {
             _ListOfTasks.Remove(task);
         }
+        public void deleteTaskFromList(int taskIndex)
+        {
+            _ListOfTasks.RemoveAt(taskIndex);
+        }
 
         public void ListToCsv(string filename)
         {
@@ -92,6 +96,17 @@ namespace BOTAY_
                 res += task.Name + "," + task.FullName + "," + task.Url + "," + task.Deadline + "," + task.IsReady.ToString();
             }
             File.WriteAllText(filename, res);
+        }
+
+        public void leaveTwentyLast()
+        {
+            if (ListOfTasks.Count > 10)
+            {
+                for(int i = 0; i < ListOfTasks.Count - 10; i++)
+                {
+                    _ListOfTasks.RemoveAt(0);                
+                }
+            }
         }
 
         public void printList()

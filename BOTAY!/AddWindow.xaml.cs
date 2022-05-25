@@ -26,13 +26,19 @@ namespace BOTAY_
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+          
+            MemoryInteraction.CurrentTasks.addToList(TaskWithDataFromTextBoxes());
+            DialogResult = true;
+        }
+
+        private Task TaskWithDataFromTextBoxes()
+        {
             Task task = new Task();
             task.Url = URLBox.Text;
             task.Name = NameBox.Text;
             task.Deadline = DeadlineBox.Text;
             task.FullName = FullNameBox.Text;
-            MemoryInteraction.CurrentTasks.addToList(task);
-            DialogResult = true;
+            return task;
         }
     }
 }

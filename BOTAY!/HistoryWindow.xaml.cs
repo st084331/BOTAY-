@@ -41,7 +41,6 @@ namespace BOTAY_
                     MemoryInteraction.HistoryTasks.deleteTaskFromList(path);
                     ToBotayHistoryList.UnselectAll();
                     DataGridUpdate();
-                    MemoryInteraction.UpdateHistoryCsv();
                 }
             }
         }

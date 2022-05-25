@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BOTAY_"
         mc:Ignorable="d"
-        Title="БОТАЙ!" Height="450" Width="820" SizeToContent="Manual" WindowState="Normal" WindowStyle="ToolWindow" FontFamily="Dubai" ResizeMode="NoResize">
+        Title="БОТАЙ!" Height="450" Width="820" SizeToContent="Manual" WindowState="Normal" WindowStyle="ToolWindow" FontFamily="Dubai" ResizeMode="NoResize" Closing="MainWindow_Closing">
     <Grid x:Name="MainRoot" Background="White">
 
         <DataGrid x:Name="ToBotayList" Margin="20,65,20,20" Grid.ColumnSpan="2" AutoGenerateColumns="False" MouseDoubleClick="DataGrid_MouseDoubleClick" CanUserAddRows="False" Loaded="DataGrid_Loaded" CanUserSortColumns="False" CanUserDeleteRows="False">

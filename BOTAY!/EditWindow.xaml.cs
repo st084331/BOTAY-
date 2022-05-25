@@ -22,21 +22,31 @@ namespace BOTAY_
         private Task WindowTask;
         public EditWindow(Task task)
         {
-            InitializeComponent();
             WindowTask = task;
-            URLBox.Text = task.Url;
-            NameBox.Text = task.Name;
-            FullNameBox.Text = task.FullName;
-            DeadlineBox.Text = task.Deadline;
+            InitializeComponent();
+            InitializeTextFields();
+        }
+
+        private void InitializeTextFields()
+        {
+            URLBox.Text = WindowTask.Url;
+            NameBox.Text = WindowTask.Name;
+            FullNameBox.Text = WindowTask.FullName;
+            DeadlineBox.Text = WindowTask.Deadline;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateTaskFields();
+            DialogResult = true;
+        }
+
+        private void UpdateTaskFields()
         {
             WindowTask.Url = URLBox.Text;
             WindowTask.Name = NameBox.Text;
             WindowTask.Deadline = DeadlineBox.Text;
             WindowTask.FullName = FullNameBox.Text;
-            DialogResult = true;
         }
     }
 }
