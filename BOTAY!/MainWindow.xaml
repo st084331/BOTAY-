@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BOTAY_"
         mc:Ignorable="d"
-        Title="БОТАЙ!" Height="450" Width="820" SizeToContent="Manual" WindowState="Normal" WindowStyle="ToolWindow" FontFamily="Dubai" ResizeMode="NoResize" Closing="MainWindow_Closing">
+        Title="БОТАЙ!" Height="450" Width="820" SizeToContent="Manual" WindowState="Normal" WindowStyle="ToolWindow" FontFamily="Dubai" ResizeMode="NoResize" Closing="MainWindow_Closing" MouseUp="Window_MouseUp">
     <Grid x:Name="MainRoot" Background="White">
 
         <DataGrid x:Name="ToBotayList" Margin="20,65,20,20" Grid.ColumnSpan="2" AutoGenerateColumns="False" MouseDoubleClick="DataGrid_MouseDoubleClick" CanUserAddRows="False" Loaded="DataGrid_Loaded" CanUserSortColumns="False" CanUserDeleteRows="False">
@@ -20,12 +20,13 @@
                     </DataGridHyperlinkColumn.ElementStyle>
                 </DataGridHyperlinkColumn>
                 <DataGridTextColumn IsReadOnly="True" Header="Дедлайн" Width="65" Binding="{Binding Path=Deadline}"/>
-                <DataGridCheckBoxColumn Header="Готово" Width="52" Binding="{Binding Path=IsReady, UpdateSourceTrigger=PropertyChanged}" IsThreeState="False"/>
+                <DataGridCheckBoxColumn Header="Готово" Width="52" Binding="{Binding Path=IsReady, UpdateSourceTrigger=PropertyChanged}" IsThreeState="False" />
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Добавить" Margin="20,33,0,0" Click="Button_Click_Add" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70"/>
         <Button Content="История" Margin="0,33,20,0" Click="Button_Click_History" Height="24" VerticalAlignment="Top" HorizontalAlignment="Right" Width="70" Grid.Column="1"/>
         <Button Content="Удалить" Margin="109,33,0,0" Click="Button_Click_Delete" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="70"/>
+        <Label x:Name="TaskLeft" Content="Все готово!" Margin="229,30,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="393" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
     

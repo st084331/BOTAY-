@@ -16,10 +16,6 @@ namespace BOTAY_
 
         public Tasks(string filename)
         {
-            if (!File.Exists(filename))
-            {
-                MemoryInteraction.InitializeFile(filename);
-            }
             var tasksParams = File.ReadAllLines(filename);
             foreach (var taskParamsOneLine in tasksParams)
             {

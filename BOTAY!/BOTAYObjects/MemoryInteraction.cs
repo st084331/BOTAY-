@@ -17,22 +17,22 @@ namespace BOTAY_
         public static string currentFilename { get { return _currentFilename; } }
         public static string historyFilename { get { return _historyFilename; } }
 
-        public static void InitializeCurrentTasks()
+        private static void InitializeCurrentTasks()
         {
             _CurrentTasks = new Tasks(_currentFilename);
         }
 
-        public static void InitializeHistoryTasks()
+        private static void InitializeHistoryTasks()
         {
             _HistoryTasks = new Tasks(_historyFilename);
         }
 
-        public static void InitializeTasks()
+        private static void InitializeTasks()
         {
             InitializeCurrentTasks();
             InitializeHistoryTasks();
         }
-        public static void InitializeFileSystem()
+        private static void InitializeFileSystem()
         {
             InitializeFile(_currentFilename);
             InitializeFile(_historyFilename);
@@ -44,7 +44,7 @@ namespace BOTAY_
             InitializeTasks();
         }
 
-        public static void InitializeFile(string filename)
+        private static void InitializeFile(string filename)
         {
             if (!File.Exists(filename))
             {
@@ -53,19 +53,31 @@ namespace BOTAY_
             }
         }
 
-        public static void UpdateCurrentCsv()
+        private static void UpdateCurrentCsv()
         {
             _CurrentTasks.ListToCsv(_currentFilename);
         }
 
-        public static void UpdateHistoryCsv()
+        private static void UpdateHistoryCsv()
         {
             _HistoryTasks.ListToCsv(_historyFilename);
+        }
+
+        public static void UpdateCsv()
+        {
+            UpdateCurrentCsv();
+            UpdateHistoryCsv();
         }
 
         public static void Update()
         {
             _HistoryTasks.leaveTwentyLast();
+            UpdateCurrent();
+            UpdateHistory();
+        }
+
+        private static void UpdateCurrent()
+        {
             List<Task> DeleteList = new List<Task>();
 
             foreach (Task task in _CurrentTasks.ListOfTasks)
@@ -81,8 +93,11 @@ namespace BOTAY_
             {
                 _CurrentTasks.deleteTaskFromList(task);
             }
+        }
 
-            DeleteList = new List<Task>();
+        private static void UpdateHistory()
+        {
+            List<Task> DeleteList = new List<Task>();
 
             foreach (Task task in _HistoryTasks.ListOfTasks)
             {

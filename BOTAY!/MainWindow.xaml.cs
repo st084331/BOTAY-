@@ -23,7 +23,7 @@ namespace BOTAY_
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        private int currentTasks = 0;
         public MainWindow()
         {
             MemoryInteraction.InitializeMemorySystem();
@@ -31,15 +31,20 @@ namespace BOTAY_
             InitializeComponent();
         }
 
+        private void Window_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            UpdateLeftTaks();
+        }
+
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
             MemoryInteraction.Update();
-            MemoryInteraction.UpdateHistoryCsv();
-            MemoryInteraction.UpdateCurrentCsv();
+            MemoryInteraction.UpdateCsv();
         }
 
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            UpdateLeftTaks();
             if (ToBotayList.SelectedItem != null)
             {
                 Task path = ToBotayList.SelectedItem as Task;
@@ -55,6 +60,7 @@ namespace BOTAY_
 
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
+            UpdateLeftTaks();
             if (ToBotayList.SelectedItem != null)
             {
                 if (MessageBox.Show("Вы уверены, что хотите удалить выбранное задание?", "Удаление", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
@@ -63,6 +69,7 @@ namespace BOTAY_
                     MemoryInteraction.CurrentTasks.deleteTaskFromList(path);
                     ToBotayList.UnselectAll();
                     DataGridUpdate();
+                    UpdateLeftTaks();
                 }
             }
          
@@ -70,10 +77,12 @@ namespace BOTAY_
 
         private void Button_Click_Add(object sender, RoutedEventArgs e)
         {
+            UpdateLeftTaks();
             AddWindow addWindow = new AddWindow();
             if ((bool)addWindow.ShowDialog()) {
                 MemoryInteraction.CurrentTasks.SortTasksListByDeadline();
                 DataGridUpdate();
+                UpdateLeftTaks();
             }
         }
 
@@ -81,21 +90,21 @@ namespace BOTAY_
         private void Button_Click_History(object sender, RoutedEventArgs e)
         {
             MemoryInteraction.HistoryTasks.leaveTwentyLast();
-
             MemoryInteraction.Update();
             DataGridUpdate();
-
+            UpdateLeftTaks();
             HistoryWindow historyWindow = new HistoryWindow();
             historyWindow.ShowDialog();
-
             MemoryInteraction.Update();
             DataGridUpdate();
+            UpdateLeftTaks();
         }
 
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
             MemoryInteraction.HistoryTasks.leaveTwentyLast();
             MemoryInteraction.Update();
+            UpdateLeftTaks();
             ToBotayList.ItemsSource = MemoryInteraction.CurrentTasks.ListOfTasks;
         }
 
@@ -108,6 +117,36 @@ namespace BOTAY_
         {
             Hyperlink link = (Hyperlink)e.OriginalSource;
             Process.Start(link.NavigateUri.AbsoluteUri);
+        }
+
+        private int ReadyCurrentTasks()
+        {
+            int currentTasks = 0;
+            foreach (var task in MemoryInteraction.CurrentTasks.ListOfTasks)
+            {
+                if (!task.IsReady)
+                {
+                    currentTasks++;
+                }
+            }
+            return currentTasks;
+        }
+
+        private void UpdateLeftTaks()
+        {
+            int updateCurrentTasks = ReadyCurrentTasks();
+            if (currentTasks != updateCurrentTasks)
+            {
+                currentTasks = updateCurrentTasks;
+                if (currentTasks > 0)
+                {
+                    TaskLeft.Content = "Осталось заданий: " + currentTasks.ToString();
+                }
+                else
+                {
+                    TaskLeft.Content = "Все готово!";
+                }
+            }
         }
     }
 }
