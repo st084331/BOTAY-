@@ -27,6 +27,7 @@ namespace BOTAY
 
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
+            MemoryInteraction.HistoryTasks.leaveTwentyLast();
             MemoryInteraction.Update();
             ToBotayHistoryList.ItemsSource = MemoryInteraction.HistoryTasks.ListOfTasks;
         }

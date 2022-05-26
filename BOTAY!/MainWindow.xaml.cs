@@ -38,6 +38,7 @@ namespace BOTAY
 
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
+            MemoryInteraction.HistoryTasks.leaveTwentyLast();
             MemoryInteraction.Update();
             MemoryInteraction.UpdateCsv();
         }
@@ -95,6 +96,7 @@ namespace BOTAY
             UpdateLeftTaks();
             HistoryWindow historyWindow = new HistoryWindow();
             historyWindow.ShowDialog();
+            MemoryInteraction.HistoryTasks.leaveTwentyLast();
             MemoryInteraction.Update();
             DataGridUpdate();
             UpdateLeftTaks();

@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -71,7 +71,6 @@ namespace BOTAY
 
         public static void Update()
         {
-            _HistoryTasks.leaveTwentyLast();
             UpdateCurrent();
             UpdateHistory();
         }
