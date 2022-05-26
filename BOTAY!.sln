@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOTAY!", "BOTAY!\BOTAY!.csproj", "{87FADB97-1EC9-4A5B-A556-3616CDDA386A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOTAY_Tests", "BOTAY_Tests\BOTAY_Tests.csproj", "{2332CFA5-8236-45FA-9561-3679DE1A16C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{87FADB97-1EC9-4A5B-A556-3616CDDA386A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87FADB97-1EC9-4A5B-A556-3616CDDA386A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87FADB97-1EC9-4A5B-A556-3616CDDA386A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2332CFA5-8236-45FA-9561-3679DE1A16C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2332CFA5-8236-45FA-9561-3679DE1A16C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2332CFA5-8236-45FA-9561-3679DE1A16C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2332CFA5-8236-45FA-9561-3679DE1A16C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
