@@ -29,6 +29,7 @@ namespace BOTAY
 
         private void InitializeTextFields()
         {
+            //Заполняем формы текущими значениями
             URLBox.Text = WindowTask.Url;
             NameBox.Text = WindowTask.Name;
             FullNameBox.Text = WindowTask.FullName;
@@ -37,12 +38,14 @@ namespace BOTAY
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //Запускаем обновление по нажатию на кнопку
             UpdateTaskFields();
             DialogResult = true;
         }
 
         private void UpdateTaskFields()
         {
+            //Обновляем текущие значения
             WindowTask.Url = URLBox.Text;
             WindowTask.Name = NameBox.Text;
             WindowTask.Deadline = DeadlineBox.Text;

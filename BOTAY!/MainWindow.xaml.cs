@@ -23,31 +23,38 @@ namespace BOTAY
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Считаем текущие заданий
         private int currentTasks = 0;
         public MainWindow()
         {
+            //Инициализируем файловую систему и наборы заданий
             MemoryInteraction.InitializeMemorySystem();
+            //Сортируем текущие задания по дедлайну
             MemoryInteraction.CurrentTasks.SortTasksListByDeadline();
             InitializeComponent();
         }
 
         private void Window_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            UpdateLeftTaks();
+            //Обновляем число оставшихся заданий по клику
+            UpdateLeftTasks();
         }
 
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
+            //Обновляем файлы памяти перед закрытием
             MemoryInteraction.HistoryTasks.leaveTwentyLast();
             MemoryInteraction.Update();
             MemoryInteraction.UpdateCsv();
         }
 
+
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            UpdateLeftTaks();
+            UpdateLeftTasks();
             if (ToBotayList.SelectedItem != null)
             {
+                //Редактируем слот при двойном клике
                 Task path = ToBotayList.SelectedItem as Task;
                 EditWindow editWindow = new EditWindow(path);
                 ToBotayList.UnselectAll();
@@ -57,20 +64,23 @@ namespace BOTAY
                     DataGridUpdate();
                 }
             }
+            UpdateLeftTasks();
         }
 
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
-            UpdateLeftTaks();
+            UpdateLeftTasks();
             if (ToBotayList.SelectedItem != null)
             {
+                //Подтвержаем удаление
                 if (MessageBox.Show("Вы уверены, что хотите удалить выбранное задание?", "Удаление", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
+                    //Удаляем
                     Task path = ToBotayList.SelectedItem as Task;
                     MemoryInteraction.CurrentTasks.deleteTaskFromList(path);
                     ToBotayList.UnselectAll();
                     DataGridUpdate();
-                    UpdateLeftTaks();
+                    UpdateLeftTasks();
                 }
             }
          
@@ -78,51 +88,59 @@ namespace BOTAY
 
         private void Button_Click_Add(object sender, RoutedEventArgs e)
         {
-            UpdateLeftTaks();
+            //Добавляем новое задание
+            UpdateLeftTasks();
             AddWindow addWindow = new AddWindow();
             if ((bool)addWindow.ShowDialog()) {
                 MemoryInteraction.CurrentTasks.SortTasksListByDeadline();
                 DataGridUpdate();
-                UpdateLeftTaks();
+                UpdateLeftTasks();
             }
         }
 
 
         private void Button_Click_History(object sender, RoutedEventArgs e)
         {
+            //Обновляем историю и текущие
             MemoryInteraction.HistoryTasks.leaveTwentyLast();
             MemoryInteraction.Update();
             DataGridUpdate();
-            UpdateLeftTaks();
+            UpdateLeftTasks();
+            //Открываем окно истории
             HistoryWindow historyWindow = new HistoryWindow();
             historyWindow.ShowDialog();
+            //Обновляем историю и текущие
             MemoryInteraction.HistoryTasks.leaveTwentyLast();
             MemoryInteraction.Update();
             DataGridUpdate();
-            UpdateLeftTaks();
+            UpdateLeftTasks();
         }
 
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
+            //Запускаем таблицу
             MemoryInteraction.HistoryTasks.leaveTwentyLast();
             MemoryInteraction.Update();
-            UpdateLeftTaks();
+            UpdateLeftTasks();
             ToBotayList.ItemsSource = MemoryInteraction.CurrentTasks.ListOfTasks;
         }
 
         private void DataGridUpdate()
         {
+            //Обновляем таблицу
             ToBotayList.Items.Refresh();
         }
 
         private void DG_Hyperlink_Click(object sender, RoutedEventArgs e)
         {
+            //Открываем ссылку
             Hyperlink link = (Hyperlink)e.OriginalSource;
             Process.Start(link.NavigateUri.AbsoluteUri);
         }
 
         private int ReadyCurrentTasks()
         {
+            //Считаем число заданий
             int currentTasks = 0;
             foreach (var task in MemoryInteraction.CurrentTasks.ListOfTasks)
             {
@@ -134,8 +152,9 @@ namespace BOTAY
             return currentTasks;
         }
 
-        private void UpdateLeftTaks()
+        private void UpdateLeftTasks()
         {
+            //Обновляем текстовый блок, если требуется
             int updateCurrentTasks = ReadyCurrentTasks();
             if (currentTasks != updateCurrentTasks)
             {

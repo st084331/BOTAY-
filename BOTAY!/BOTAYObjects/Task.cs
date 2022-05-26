@@ -21,6 +21,7 @@ namespace BOTAY
             }
             set
             {
+                //Защита от пустых названий и пробелов
                 if (!String.IsNullOrWhiteSpace(value) && !String.IsNullOrEmpty(value))
                 {
                     _Name = value;
@@ -42,6 +43,7 @@ namespace BOTAY
             }
             set
             {
+                //Проверка ссылки на валидность
                 if (IsUrlValid(value))
                 {
                     _Url = value;
@@ -65,6 +67,7 @@ namespace BOTAY
             get { return _FullName; }
             set
             {
+                //Защита от пустых строк и пробелов
                 if (!String.IsNullOrWhiteSpace(value) && !String.IsNullOrEmpty(value))
                 {
                     _FullName = value;
@@ -85,6 +88,7 @@ namespace BOTAY
                 {
                     try
                     {
+                        //Если дата корректна и она не раньше текущего дня, то валидно
                         DateTime date = DateTime.Parse(value, culture);
                         if (DateTime.Compare(date, DateTime.Today) >= 0)
                         {

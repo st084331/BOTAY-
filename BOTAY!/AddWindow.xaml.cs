@@ -26,13 +26,14 @@ namespace BOTAY
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-          
+           //Запускаем создание по нажатию на кнопку
             MemoryInteraction.CurrentTasks.addToList(TaskWithDataFromTextBoxes());
             DialogResult = true;
         }
 
         private Task TaskWithDataFromTextBoxes()
         {
+            //Создаем задание с введеными значениями
             Task task = new Task();
             task.Url = URLBox.Text;
             task.Name = NameBox.Text;

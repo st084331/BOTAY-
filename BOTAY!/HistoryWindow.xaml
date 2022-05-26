@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BOTAY"
         mc:Ignorable="d"
-        Title="История" Height="450" Width="710" ResizeMode="NoResize">
+        Title="История" Height="450" Width="720" ResizeMode="NoResize">
     <Grid>
         <DataGrid x:Name="ToBotayHistoryList" Margin="0,46,0,0" AutoGenerateColumns="False" CanUserAddRows="False" Loaded="DataGrid_Loaded" CanUserSortColumns="False">
             <DataGrid.Columns>

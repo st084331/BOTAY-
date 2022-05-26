@@ -27,6 +27,7 @@ namespace BOTAY
 
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
+            //Загружаем данные в таблицу истории
             MemoryInteraction.HistoryTasks.leaveTwentyLast();
             MemoryInteraction.Update();
             ToBotayHistoryList.ItemsSource = MemoryInteraction.HistoryTasks.ListOfTasks;
@@ -36,6 +37,7 @@ namespace BOTAY
         {
             if (ToBotayHistoryList.SelectedItem != null)
             {
+                //Подтвержаем удаление
                 if (MessageBox.Show("Вы уверены, что хотите удалить выбранное задание?", "Удаление", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     Task path = ToBotayHistoryList.SelectedItem as Task;
@@ -48,6 +50,7 @@ namespace BOTAY
 
         private void DataGridUpdate()
         {
+            //Обновляем таблицу
             ToBotayHistoryList.Items.Refresh();
         }
     }

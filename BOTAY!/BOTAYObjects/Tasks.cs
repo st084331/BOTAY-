@@ -16,6 +16,7 @@ namespace BOTAY
 
         public Tasks(string filename)
         {
+            //Создаем список заданий из csv файла
             var tasksParams = File.ReadAllLines(filename);
             foreach (var taskParamsOneLine in tasksParams)
             {
@@ -38,6 +39,7 @@ namespace BOTAY
 
         public void SortTasksListByDeadline()
         {
+            //BubbleSort по дедлайнам
             var culture = CultureInfo.GetCultureInfo("ru");
             Task temp;
             for (int i = 0; i < _ListOfTasks.Count; i++)
@@ -80,6 +82,7 @@ namespace BOTAY
 
         public void ListToCsv(string filename)
         {
+            //Переводим список заданий в файл csv
             string res = "";
             for (int i = 0; i < _ListOfTasks.Count - 1; i++)
             {
@@ -96,6 +99,7 @@ namespace BOTAY
 
         public void leaveTwentyLast()
         {
+            //Оставляем 20 последних заданий
             if (ListOfTasks.Count > 20)
             {
                 int n = ListOfTasks.Count - 20;
