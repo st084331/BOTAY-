@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BOTAY_
+namespace BOTAY
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml

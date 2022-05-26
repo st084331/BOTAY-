@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Net;
 using System.Text.RegularExpressions;
 
-namespace BOTAY_
+namespace BOTAY
 {
     public class Task
     {
@@ -23,7 +23,6 @@ namespace BOTAY_
             {
                 if (!String.IsNullOrWhiteSpace(value) && !String.IsNullOrEmpty(value))
                 {
-                    Console.WriteLine(value);
                     _Name = value;
                 }
                 else
@@ -66,7 +65,7 @@ namespace BOTAY_
             get { return _FullName; }
             set
             {
-                if (value.Trim() != string.Empty || value.Trim() != " ")
+                if (!String.IsNullOrWhiteSpace(value) && !String.IsNullOrEmpty(value))
                 {
                     _FullName = value;
                 }

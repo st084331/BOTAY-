@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace BOTAY_
+namespace BOTAY
 {
     public static class MemoryInteraction
     {

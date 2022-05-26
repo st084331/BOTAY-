@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BOTAY_.Properties
+namespace BOTAY.Properties
 {
 
 

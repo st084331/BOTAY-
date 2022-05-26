@@ -1,7 +1,7 @@
-﻿<Application x:Class="BOTAY_.App"
+﻿<Application x:Class="BOTAY.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:BOTAY_"
+             xmlns:local="clr-namespace:BOTAY"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
