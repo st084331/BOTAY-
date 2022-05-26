@@ -98,7 +98,8 @@ namespace BOTAY
         {
             if (ListOfTasks.Count > 20)
             {
-                for(int i = 0; i < ListOfTasks.Count - 20; i++)
+                int n = ListOfTasks.Count - 20;
+                for (int i = 0; i < n; i++)
                 {
                     _ListOfTasks.RemoveAt(0);                
                 }
