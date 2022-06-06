@@ -112,6 +112,7 @@ namespace BOTAY
             //Обновляем историю и текущие
             MemoryInteraction.HistoryTasks.leaveTwentyLast();
             MemoryInteraction.Update();
+            MemoryInteraction.CurrentTasks.SortTasksListByDeadline();
             DataGridUpdate();
             UpdateLeftTasks();
         }
