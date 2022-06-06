@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "BOTAY_console_edition/1.0.0": {
+        "runtime": {
+          "BOTAY_console_edition.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BOTAY_console_edition/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
