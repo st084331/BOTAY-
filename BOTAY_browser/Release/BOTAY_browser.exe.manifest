@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="BOTAY_browser.exe" version="1.0.0.0" publicKeyToken="1e80c5091b4e6bbd" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="BOTAY_browser" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="BOTAY_browser.exe" parameters="" />
+    <hostInBrowser xmlns="urn:schemas-microsoft-com:asm.v3" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="Internet" Description="Default rights given to Internet applications" ID="Custom" SameSite="site">
+          <IPermission version="1" class="System.Security.Permissions.FileDialogPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Access="Open" />
+          <IPermission UserQuota="1024000" version="1" class="System.Security.Permissions.IsolatedStorageFilePermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Allowed="ApplicationIsolationByUser" />
+          <IPermission version="1" class="System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Flags="Execution" />
+          <IPermission version="1" class="System.Security.Permissions.UIPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Clipboard="OwnClipboard" Window="SafeTopLevelWindows" />
+          <IPermission version="1" class="System.Drawing.Printing.PrintingPermission, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Level="SafePrinting" />
+          <IPermission version="1" class="System.Security.Permissions.MediaPermission, WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Audio="SafeAudio" Image="SafeImage" Video="SafeVideo" />
+          <IPermission version="1" class="System.Security.Permissions.WebBrowserPermission, WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Level="Safe" />
+        </PermissionSet>
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BOTAY_browser.exe" size="16312">
+      <assemblyIdentity name="BOTAY_browser" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>w5jCXcsbAuGYx1/wWGNY8xsi3eFga+xHT7NViZbu37M=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+<publisherIdentity name="CN=DESKTOP-OGUEQHD\User" issuerKeyHash="5d853f344690339ac55ff42c862ac450cbba5f30" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>jt5EwOHkBx4tODNpSMm020k3mfk=</DigestValue></Reference></SignedInfo><SignatureValue>md6ToMMThYzTXpQ2rYhLoKA1n1m+k7sQAjZL70T9qyssr2AtaUc+4DCqx007DF2IbQjSUa947ICxCnXDWBOegIhqzWdubqQ/1FrviTVgXSzBM4Ortp+W42YeQ3wh4iEFXrKEko84TUkqDA+jZ5YCz5+fA06xbn2+Fk3K09Elh4E=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>rAC/gL+1wJ0Pd6fJ3TwKtTjI4juvW2CtyIitoxNdZ7xFMUO6rUPoN/V6oGmYjkBbUb+CalMrAQgZUysitk0oInGKuxC04NCMLyPUQhxzNQZTFdVEot0e8TUELkviZY4bFvJ8OlbqM45mHxsc5P0VF6FQNrcp+nFr8DDsAqFudrk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="f9993749dbb4c9486933382d1e07e4e1c044de8e" Description="" Url=""><as:assemblyIdentity name="BOTAY_browser.exe" version="1.0.0.0" publicKeyToken="1e80c5091b4e6bbd" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-OGUEQHD\User</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>ndw4s+xngEIi6dzKx724qloJ6/E=</DigestValue></Reference></SignedInfo><SignatureValue>AcpGkG3kGNYF+Rb3qfkZM7QKrBK/A9iW7VXbbbV5DKek8SBEMeLod02wLkPMJ7/eaHAJZ7+dAoEhZSOnimvID4c9apfTqldtue/0CgVXYTQEgsEvFnawVG4bKUbFuCZ0kzywMsZVVkOnYvJAtxxCOe2WQPpBJM6J8WugA4Q0D5o=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>rAC/gL+1wJ0Pd6fJ3TwKtTjI4juvW2CtyIitoxNdZ7xFMUO6rUPoN/V6oGmYjkBbUb+CalMrAQgZUysitk0oInGKuxC04NCMLyPUQhxzNQZTFdVEot0e8TUELkviZY4bFvJ8OlbqM45mHxsc5P0VF6FQNrcp+nFr8DDsAqFudrk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB6TCCAVKgAwIBAgIQatI1FpeDIYRNr8xKHh40AzANBgkqhkiG9w0BAQUFADAzMTEwLwYDVQQDHigARABFAFMASwBUAE8AUAAtAE8ARwBVAEUAUQBIAEQAXABVAHMAZQByMB4XDTIyMDYwNjEyNTMxN1oXDTIzMDYwNjE4NTMxN1owMzExMC8GA1UEAx4oAEQARQBTAEsAVABPAFAALQBPAEcAVQBFAFEASABEAFwAVQBzAGUAcjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEArAC/gL+1wJ0Pd6fJ3TwKtTjI4juvW2CtyIitoxNdZ7xFMUO6rUPoN/V6oGmYjkBbUb+CalMrAQgZUysitk0oInGKuxC04NCMLyPUQhxzNQZTFdVEot0e8TUELkviZY4bFvJ8OlbqM45mHxsc5P0VF6FQNrcp+nFr8DDsAqFudrkCAwEAATANBgkqhkiG9w0BAQUFAAOBgQA5FYtBSwxYn+USZC3ObTA8JxSRko9Fc9OJ5S+1a7QGRnWWlRzcPjzL++QyRUqRDPsN27LJswHWcmrOscHh78tjF5FJexYTayps/BGyDov/yjKhLAxM4fG2V7poSC/dD0b9f9Peyi7TiF22JK/qf8dvh0VavVEKfs37H0CgGULtAg==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
