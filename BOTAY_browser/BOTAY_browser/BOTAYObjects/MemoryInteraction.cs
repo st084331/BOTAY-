@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace BOTAY
+namespace BOTAY_browser
 {
     public static class MemoryInteraction
     {

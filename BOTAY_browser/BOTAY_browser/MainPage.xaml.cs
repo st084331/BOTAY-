@@ -1,4 +1,4 @@
-﻿using BOTAY;
+﻿using BOTAY_browser;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Task = BOTAY.Task;
+using Task = BOTAY_browser.Task;
 
 namespace BOTAY_browser
 {

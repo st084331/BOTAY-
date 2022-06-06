@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 
-namespace BOTAY
+namespace BOTAY_browser
 {
     public class Tasks
     {

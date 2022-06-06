@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Net;
 using System.Text.RegularExpressions;
 
-namespace BOTAY
+namespace BOTAY_browser
 {
     public class Task
     {
